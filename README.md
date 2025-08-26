@@ -135,5 +135,74 @@
   setInterval(createHeart, 150);
 </script>
 </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lluvia de Amor</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        overflow: hidden;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Arial', sans-serif;
+        color: white;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    }
+    h1 {
+        position: absolute;
+        top: 40%;
+        font-size: 3rem;
+        text-align: center;
+    }
+    .heart {
+        position: absolute;
+        top: -50px;
+        font-size: 24px;
+        color: #ff3366;
+        animation: fall linear forwards;
+    }
+    @keyframes fall {
+        to {
+            transform: translateY(110vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+<body>
+    <h1>💖 Lluvia de Amor 💖</h1>
+    <script>
+        const body = document.body;
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's'; // Velocidad
+            heart.style.fontSize = (Math.random() * 20 + 20) + 'px'; // Tamaño
+
+            body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 200);
+    </script>
+</body>
+</html>
 </html>
 </html>
